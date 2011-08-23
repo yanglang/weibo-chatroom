@@ -30,8 +30,6 @@ import weiboauth
 from tornado.options import define, options
 
 define("port", default=8888, help="run on the given port", type=int)
-define("weibo_consumer_key", default="3161369772", help="weibo_consumer_key")
-define("weibo_consumer_secret", default="9fe807f4357f42bc40c635bcf6949a9a", help="weibo_consumer_secret")
 
 class Application(tornado.web.Application):
     def __init__(self):
@@ -48,8 +46,8 @@ class Application(tornado.web.Application):
             template_path=os.path.join(os.path.dirname(__file__), "templates"),
             static_path=os.path.join(os.path.dirname(__file__), "static"),
             xsrf_cookies=True,
-            weibo_consumer_key="3161369772",
-            weibo_consumer_secret="9fe807f4357f42bc40c635bcf6949a9a"
+            weibo_consumer_key="WEIBO_CONSUMER_KEY",
+            weibo_consumer_secret="WEIBO_CONSUMER_SECRET"
         )
         tornado.web.Application.__init__(self, handlers, **settings)
 
